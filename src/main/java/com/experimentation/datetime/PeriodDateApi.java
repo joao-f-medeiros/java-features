@@ -1,4 +1,4 @@
-package com.experimentation.general;
+package com.experimentation.datetime;
 
 import java.time.Duration;
 import java.time.LocalDate;
@@ -40,14 +40,14 @@ public class PeriodDateApi {
 
     LocalDate ld = LocalDate.of(2000, 1, 1);
     LocalDate ld2 = ld.plusWeeks(2).plusDays(2).plusMonths(3);
-    Period between = Period.between(ld, ld2);
-    System.out.println(between);
+    Period ldBetweenFromPeriod = Period.between(ld, ld2);
+    System.out.println(ldBetweenFromPeriod);
 
-    Period between2 = ld.until(ld2);
-    System.out.println(between2);
+    Period ldBetweenFromLocalDate = ld.until(ld2);
+    System.out.println(ldBetweenFromLocalDate);
 
     // LocalDate - Period can be used to change other objects data
-    LocalDate plus = ld.plus(twoYears);
-    System.out.println(plus);
+    LocalDate ldTwoYearsLater = ld.plus(twoYears);
+    System.out.println(ldTwoYearsLater);
   }
 }
