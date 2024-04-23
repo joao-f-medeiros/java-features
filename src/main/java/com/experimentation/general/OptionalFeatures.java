@@ -16,6 +16,7 @@ public class OptionalFeatures {
     System.out.println(integer.getAsInt());
 
     Optional.of(number).orElseThrow(() -> new IllegalArgumentException());
+    Optional.of(number).orElseThrow();
   }
 
   public static Optional<Integer> convertToNumber(String numberStr) {

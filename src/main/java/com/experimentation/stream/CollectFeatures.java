@@ -12,96 +12,120 @@ import java.util.stream.Collectors;
 
 public class CollectFeatures {
 
-  public static void main(String[] args) {
-    List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
+    public static void main(String[] args) {
+        java8Methods();
 
-    // Collector customized: Supplier - Accumulator - Combiner
-    ArrayList<Object> collect = list.stream()
-        .collect(
-            // Suplier initialization
-            () -> new ArrayList<>(),
-            // Accumulator: l - Suplier collection, e - element of the stream
-            (l, e) -> l.add(e),
-            // Combiner: l1 and l2 - Collections merge
-            (l1, l2) -> l1.addAll(l2));
+        java10Methods();
+    }
 
-    System.out.println(list);
-    System.out.println(collect);
+    private static void java10Methods() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
+        List<Integer> unmodifiedList = list.stream()
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toUnmodifiableList());
+        System.out.println(unmodifiedList);
 
-    // toList
-    List<Integer> collect2 = list.stream()
-        .collect(Collectors.toList());
-    System.out.println(collect2);
+        Map<Integer, Integer> unmodifiedMap = list.stream()
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toUnmodifiableMap(n -> n, n -> n * 2));
+        System.out.println(unmodifiedMap);
 
-    // toSet
-    Set<Integer> collect3 = list.stream()
-        .collect(Collectors.toSet());
-    System.out.println(collect3);
+        Set<Integer> unmodifiedSet = list.stream()
+                .filter(n -> n % 2 == 0)
+                .collect(Collectors.toUnmodifiableSet());
+        System.out.println(unmodifiedSet);
+    }
 
-    // toCollection - Customize return type
-    LinkedList<Integer> collect4 = list.stream()
-        .collect(Collectors.toCollection(() -> new LinkedList<>()));
-    System.out.println(collect4);
+    private static void java8Methods() {
+        List<Integer> list = Arrays.asList(1, 2, 3, 4, 5, 6);
 
-    // joining - Merge all the elements
-    String join = list.stream()
-        .map(e -> e.toString())
-        .collect(Collectors.joining(","));
-    System.out.println(join);
+        // Collector customized: Supplier - Accumulator - Combiner
+        ArrayList<Object> collect = list.stream()
+                .collect(
+                        // Suplier initialization
+                        () -> new ArrayList<>(),
+                        // Accumulator: l - Suplier collection, e - element of the stream
+                        (l, e) -> l.add(e),
+                        // Combiner: l1 and l2 - Collections merge
+                        (l1, l2) -> l1.addAll(l2));
 
-    // averaging - Avery of the elements value
-    Double average = list.stream()
-        .collect(Collectors.averagingInt(n -> n.intValue()));
-    System.out.println(average);
+        System.out.println(list);
+        System.out.println(collect);
 
-    // summing - Sumary of the stream, only one value
-    Integer sum = list.stream()
-        .collect(Collectors.summingInt(n -> n.intValue()));
-    System.out.println(sum);
+        // toList
+        List<Integer> collect2 = list.stream()
+                .collect(Collectors.toList());
+        System.out.println(collect2);
 
-    // sumarizing - Process all the values together
-    IntSummaryStatistics stats = list.stream()
-        .collect(Collectors.summarizingInt(n -> n.intValue()));
-    System.out.println(stats.getAverage());
-    System.out.println(stats.getCount());
-    System.out.println(stats.getMax());
-    System.out.println(stats.getMin());
-    System.out.println(stats.getSum());
+        // toSet
+        Set<Integer> collect3 = list.stream()
+                .collect(Collectors.toSet());
+        System.out.println(collect3);
 
-    // counting
-    Long count = list.stream()
-        .collect(Collectors.counting());
-    System.out.println(count);
+        // toCollection - Customize return type
+        LinkedList<Integer> collect4 = list.stream()
+                .collect(Collectors.toCollection(() -> new LinkedList<>()));
+        System.out.println(collect4);
 
-    // max/min
-    list.stream()
-        .collect(Collectors.maxBy(Comparator.naturalOrder()))
-        .ifPresent(System.out::println);
+        // joining - Merge all the elements
+        String join = list.stream()
+                .map(e -> e.toString())
+                .collect(Collectors.joining(","));
+        System.out.println(join);
 
-    list.stream()
-        .collect(Collectors.minBy(Comparator.naturalOrder()))
-        .ifPresent(System.out::println);
+        // averaging - Avery of the elements value
+        Double average = list.stream()
+                .collect(Collectors.averagingInt(n -> n.intValue()));
+        System.out.println(average);
 
-    // groupingBy
-    Map<Integer, List<Integer>> grouping = list.stream()
-        .collect(Collectors.groupingBy(n -> n % 2));
+        // summing - Sumary of the stream, only one value
+        Integer sum = list.stream()
+                .collect(Collectors.summingInt(n -> n.intValue()));
+        System.out.println(sum);
 
-    System.out.println(grouping);
+        // sumarizing - Process all the values together
+        IntSummaryStatistics stats = list.stream()
+                .collect(Collectors.summarizingInt(n -> n.intValue()));
+        System.out.println(stats.getAverage());
+        System.out.println(stats.getCount());
+        System.out.println(stats.getMax());
+        System.out.println(stats.getMin());
+        System.out.println(stats.getSum());
 
-    // partitioningBy
-    Map<Boolean, List<Integer>> partitioning = list.stream()
-        .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+        // counting
+        Long count = list.stream()
+                .collect(Collectors.counting());
+        System.out.println(count);
 
-    System.out.println(partitioning);
+        // max/min
+        list.stream()
+                .collect(Collectors.maxBy(Comparator.naturalOrder()))
+                .ifPresent(System.out::println);
 
-    // toMap
-    Map<Integer, Integer> toMap = list.stream()
-        .collect(Collectors.toMap(
-            // Key value definition
-            n -> n,
-            // Value definition
-            n -> n * 2));
+        list.stream()
+                .collect(Collectors.minBy(Comparator.naturalOrder()))
+                .ifPresent(System.out::println);
 
-    System.out.println(toMap);
-  }
+        // groupingBy
+        Map<Integer, List<Integer>> grouping = list.stream()
+                .collect(Collectors.groupingBy(n -> n % 2));
+
+        System.out.println(grouping);
+
+        // partitioningBy
+        Map<Boolean, List<Integer>> partitioning = list.stream()
+                .collect(Collectors.partitioningBy(n -> n % 2 == 0));
+
+        System.out.println(partitioning);
+
+        // toMap
+        Map<Integer, Integer> toMap = list.stream()
+                .collect(Collectors.toMap(
+                        // Key value definition
+                        n -> n,
+                        // Value definition
+                        n -> n * 2));
+
+        System.out.println(toMap);
+    }
 }

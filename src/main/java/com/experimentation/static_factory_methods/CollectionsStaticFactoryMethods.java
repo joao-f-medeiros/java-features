@@ -8,6 +8,20 @@ import java.util.Set;
 public class CollectionsStaticFactoryMethods {
 
   public static void main(String[] args) {
+    java9Methods();
+
+    java10Methods();
+  }
+
+  private static void java10Methods() {
+    List.copyOf(List.of(1));
+
+    Set.copyOf(List.of(1));
+
+    Map.copyOf(Map.of("A", 1));
+  }
+
+  private static void java9Methods() {
     // Before Java 9
     Arrays.asList(1, 2, 3);
 
