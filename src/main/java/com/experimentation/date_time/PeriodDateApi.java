@@ -1,4 +1,4 @@
-package com.experimentation.datetime;
+package com.experimentation.date_time;
 
 import java.time.Duration;
 import java.time.LocalDate;
