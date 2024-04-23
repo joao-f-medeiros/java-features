@@ -21,8 +21,10 @@ public class VarFeatures {
     for (var element : list) {
       System.out.println(element);
     }
+
+    // Java 11 Improvement
     var list2 = List.of("One", "new", name, description);
-    list2.forEach(System.out::println);
+    list2.forEach((var e) -> System.out.println(e));
 
     var stringOrInteger = list2.size() > 0 ? "ABC" : 23;
     System.out.println("IntersectionType = " + stringOrInteger.toString());
