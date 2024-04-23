@@ -9,16 +9,17 @@ public class StaticFactoryMethodsBenefits {
 
   public static void main(String[] args) {
     // Significant Names
-    Optional<Object> empty = Optional.empty();
-    Optional<Integer> onHundredOpt = Optional.of(100);
-    Optional<Object> nullable = Optional.ofNullable(null);
+    Optional.empty();
+    Optional.of(100);
+    Optional.ofNullable(null);
 
     // Flexible Returns
     List<Object> list = new ArrayList<>();
     List<Object> newList = Collections.unmodifiableList(list);
+    newList.forEach(System.out::println);
     // newList.add(2); throw exception
 
     // Instance Control
-    Integer onHundred = Integer.valueOf(100);
+    Integer.valueOf(100);
   }
 }

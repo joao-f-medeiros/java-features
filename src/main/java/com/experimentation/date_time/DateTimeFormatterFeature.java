@@ -51,6 +51,7 @@ public class DateTimeFormatterFeature {
    * doesn't use the LMT but the new Date Time API does. That's why the
    * difference.
    */
+  @SuppressWarnings("deprecation")
   private static void problemOfLMTForOldDates() {
     DateTimeFormatter formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM);
     DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.MEDIUM, DateFormat.MEDIUM);
