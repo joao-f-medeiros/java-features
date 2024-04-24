@@ -22,7 +22,7 @@ public class VarFeatures {
       System.out.println(element);
     }
 
-    // Java 11 Improvement
+    // Java 11 - Introduces var
     var list2 = List.of("One", "new", name, description);
     list2.forEach((var e) -> System.out.println(e));
 

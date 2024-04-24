@@ -13,9 +13,15 @@ public record Product(String name, int quantity, double price) implements Compar
     count();
   }
 
+  // Can have static methods
   private static void count() {
     COUNT++;
     System.out.println(COUNT);
+  }
+
+  // Can have methods
+  public double getTotalValue() {
+    return quantity * price;
   }
 
   @Override
