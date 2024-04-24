@@ -62,7 +62,7 @@ public class SwitchFeatures {
     };
   }
 
-  // Java 21 - Switch with Return, Lampda and Sealed Classes
+  // Java 21 - Switch for Sealed Classes
   private static double newSwitchCaseWithSealedClasses(GeometricFigure figure) {
     return switch (figure) {
       case null -> 0.0;
@@ -72,12 +72,12 @@ public class SwitchFeatures {
     };
   }
 
-  // Java 14 - Switch with Return, Lampda and Sealed Classes
+  // Java 21 - Switch for var types
   private static String newSwitchFormatterPattern(Object obj) {
     return switch (obj) {
       case null -> "null";
-      case Integer i -> String.format("int %d", i);
-      case Long l -> String.format("int %d", l);
+      case Integer i when i < 100 -> String.format("int %d", i);
+      case Long l when l.byteValue() == 0 -> String.format("int %d", l);
       case Double d -> String.format("int %f", d);
       case String s -> String.format("int %s", s);
       default -> obj.toString();
