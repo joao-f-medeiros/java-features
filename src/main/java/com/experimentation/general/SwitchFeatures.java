@@ -1,5 +1,6 @@
 package com.experimentation.general;
 
+import com.experimentation.records.Product;
 import com.experimentation.sealed_classes.Circle;
 import com.experimentation.sealed_classes.GeometricFigure;
 import com.experimentation.sealed_classes.Rectangle;
@@ -80,6 +81,7 @@ public class SwitchFeatures {
       case Long l when l.byteValue() == 0 -> String.format("int %d", l);
       case Double d -> String.format("int %f", d);
       case String s -> String.format("int %s", s);
+      case Product(String name, int quantity, double price) -> name;
       default -> obj.toString();
     };
   }

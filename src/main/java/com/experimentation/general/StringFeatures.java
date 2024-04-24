@@ -31,5 +31,9 @@ public class StringFeatures {
         """;
     System.out.println(sql);
     System.out.println(json);
+
+    // Java 21 - String Template - Preview
+    System.out.printf("Hello %s%n", str);
   }
+
 }
