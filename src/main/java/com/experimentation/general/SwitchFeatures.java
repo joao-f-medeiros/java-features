@@ -1,5 +1,10 @@
 package com.experimentation.general;
 
+import com.experimentation.sealed_classes.Circle;
+import com.experimentation.sealed_classes.GeometricFigure;
+import com.experimentation.sealed_classes.Rectangle;
+import com.experimentation.sealed_classes.Square;
+
 public class SwitchFeatures {
 
   private enum WEEK_DAY {
@@ -10,6 +15,11 @@ public class SwitchFeatures {
     System.out.println(oldSwitchCode(WEEK_DAY.MONDAY));
 
     System.out.println(newSwitchCode(WEEK_DAY.SATURDAY));
+
+    GeometricFigure figure = new Circle();
+    System.out.println(oldSwitchCaseWithSealedClasses(figure));
+
+    System.out.println(newSwitchCaseWithSealedClasses(figure));
   }
 
   private static String newSwitchCode(WEEK_DAY day) {
@@ -47,6 +57,29 @@ public class SwitchFeatures {
       case SATURDAY, SUNDAY -> "Weekend";
       default -> "Day not recognized";
     };
+  }
+
+  // Java 21 - Switch with Return, Lampda and Sealed Classes
+  private static double newSwitchCaseWithSealedClasses(GeometricFigure figure) {
+    return switch (figure) {
+      case null -> 0.0;
+      case Circle c -> c.getRadio() * c.getRadio() * Math.PI;
+      case Square s -> s.getSide() * s.getSide();
+      default -> 0.0;
+    };
+  }
+
+  private static double oldSwitchCaseWithSealedClasses(GeometricFigure figure) {
+    if (figure instanceof Circle circle) {
+      return circle.getRadio() * circle.getRadio() * Math.PI;
+    }
+    if (figure instanceof Square square) {
+      return square.getSide() * square.getSide();
+    }
+    if (figure instanceof Rectangle rectangle) {
+      return rectangle.getSide() * rectangle.getHeight();
+    }
+    return 0.0;
   }
 
   private static String oldSwitchCode(WEEK_DAY day) {

@@ -16,6 +16,8 @@ public class InstanceOfFeatures {
 
     // After Java 14 - Pattern matching. Creates object in the same line of
     // instanceof and can be used at the same line
+    // Can only use &&, the or (||) doesn't work because previous condition must be
+    // always true
     if (obj instanceof Integer number && number < 100) {
       System.out.println(number.getClass());
     }
