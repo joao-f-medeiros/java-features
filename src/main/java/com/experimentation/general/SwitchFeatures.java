@@ -14,6 +14,21 @@ public class SwitchFeatures {
 
   private static String newSwitchCode(WEEK_DAY day) {
     String result;
+
+    // Can use body inside of lambda functions
+    result = switch (day) {
+      case MONDAY:
+      case TUESDAY:
+      case WEDNESSDAY:
+      case THURSDAY:
+      case FRIDAY:
+        yield "Work Day";
+      case SATURDAY:
+      case SUNDAY:
+        yield "Weekend";
+    };
+    System.out.println("Using yield: " + result);
+
     // Can use body inside of lambda functions
     switch (day) {
       case MONDAY, TUESDAY, WEDNESSDAY, THURSDAY, FRIDAY -> result = "Work Day";
@@ -23,7 +38,7 @@ public class SwitchFeatures {
         result = "Day not recognized";
       }
     }
-    System.err.println(result);
+    System.err.println("Using lambda: " + result);
 
     // Can not use body inside of lambda functions
     return switch (day) {
