@@ -10,7 +10,7 @@ public class RecordsFeatures {
     System.out.println("Total price " + product.getTotalValue());
     List.of(new Product("Chocolat", 10, 11.00)).forEach(System.out::println);
 
-    // Java 15 - Inner Records
+    // Java 16 - Inner Records
     record TempRecord(String name) {
     }
     TempRecord temp = new TempRecord("Java 15");

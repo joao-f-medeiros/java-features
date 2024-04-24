@@ -8,13 +8,13 @@ public class InstanceOfFeatures {
   }
 
   private static void handleNumber(Object obj) {
-    // Before Java 14
+    // Before Java 16
     if (obj instanceof Integer) {
       Integer number = (Integer) obj;
       System.out.println(number.getClass());
     }
 
-    // After Java 14 - Pattern matching. Creates object in the same line of
+    // After Java 16 - Pattern matching. Creates object in the same line of
     // instanceof and can be used at the same line
     // Can only use &&, the or (||) doesn't work because previous condition must be
     // always true

@@ -16,10 +16,13 @@ public class SwitchFeatures {
 
     System.out.println(newSwitchCode(WEEK_DAY.SATURDAY));
 
+    // Java 17 and 21
     GeometricFigure figure = new Circle();
     System.out.println(oldSwitchCaseWithSealedClasses(figure));
 
     System.out.println(newSwitchCaseWithSealedClasses(figure));
+
+    System.out.println(newSwitchFormatterPattern(10));
   }
 
   private static String newSwitchCode(WEEK_DAY day) {
@@ -66,6 +69,18 @@ public class SwitchFeatures {
       case Circle c -> c.getRadio() * c.getRadio() * Math.PI;
       case Square s -> s.getSide() * s.getSide();
       default -> 0.0;
+    };
+  }
+
+  // Java 14 - Switch with Return, Lampda and Sealed Classes
+  private static String newSwitchFormatterPattern(Object obj) {
+    return switch (obj) {
+      case null -> "null";
+      case Integer i -> String.format("int %d", i);
+      case Long l -> String.format("int %d", l);
+      case Double d -> String.format("int %f", d);
+      case String s -> String.format("int %s", s);
+      default -> obj.toString();
     };
   }
 

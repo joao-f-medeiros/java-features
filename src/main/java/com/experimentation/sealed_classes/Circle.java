@@ -8,10 +8,6 @@ public non-sealed class Circle extends GeometricFigure {
     return radio;
   }
 
-  public void setRadio(Double radio) {
-    this.radio = radio;
-  }
-
   @Override
   public double calculateArea() {
     return 0;

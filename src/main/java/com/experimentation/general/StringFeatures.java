@@ -17,7 +17,7 @@ public class StringFeatures {
     System.out.println(java12.indent(2));
     System.out.println(java12.transform(s -> s + " Nice!").transform(String::toUpperCase));
 
-    // Java 13 - Text Blocks
+    // Java 15 - Text Blocks
     String sql = """
           Update table
             SET field = ?

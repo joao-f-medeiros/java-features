@@ -1,6 +1,6 @@
 package com.experimentation.records;
 
-// Java 14
+// Java 16
 // Can not extend other classes, only implement
 // Records are immutable (all fields are final)
 // Empty constructor doesn't exist because the class is immutable
