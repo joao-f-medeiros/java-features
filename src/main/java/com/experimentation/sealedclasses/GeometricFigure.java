@@ -1,4 +1,4 @@
-package com.experimentation.sealed_classes;
+package com.experimentation.sealedclasses;
 
 public sealed abstract class GeometricFigure permits Circle, Square, Rectangle {
 

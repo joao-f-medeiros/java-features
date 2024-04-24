@@ -1,4 +1,4 @@
-package com.experimentation.sealed_classes;
+package com.experimentation.sealedclasses;
 
 public final class Rectangle extends GeometricFigure {
 

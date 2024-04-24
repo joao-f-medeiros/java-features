@@ -1,4 +1,4 @@
-package com.experimentation.virtual_threads;
+package com.experimentation.virtualthreads;
 
 import java.util.concurrent.Executors;
 

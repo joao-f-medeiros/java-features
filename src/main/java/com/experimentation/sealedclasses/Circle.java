@@ -1,4 +1,4 @@
-package com.experimentation.sealed_classes;
+package com.experimentation.sealedclasses;
 
 public non-sealed class Circle extends GeometricFigure {
 

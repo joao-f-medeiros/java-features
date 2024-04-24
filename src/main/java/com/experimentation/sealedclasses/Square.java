@@ -1,4 +1,4 @@
-package com.experimentation.sealed_classes;
+package com.experimentation.sealedclasses;
 
 // Can be final, sealed or non-sealed
 public final class Square extends GeometricFigure {

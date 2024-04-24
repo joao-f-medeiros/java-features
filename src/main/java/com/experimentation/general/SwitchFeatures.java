@@ -1,10 +1,10 @@
 package com.experimentation.general;
 
 import com.experimentation.records.Product;
-import com.experimentation.sealed_classes.Circle;
-import com.experimentation.sealed_classes.GeometricFigure;
-import com.experimentation.sealed_classes.Rectangle;
-import com.experimentation.sealed_classes.Square;
+import com.experimentation.sealedclasses.Circle;
+import com.experimentation.sealedclasses.GeometricFigure;
+import com.experimentation.sealedclasses.Rectangle;
+import com.experimentation.sealedclasses.Square;
 
 public class SwitchFeatures {
 
